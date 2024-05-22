@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>My Reservations</title>
+</head>
+
+<body>
+<button id="backToRooms" (click)="redirectToMain()">
+  Back to Rooms
+</button>
+<div class="container">
+  <table>
+    <tr>
+      <th> Room Number </th>
+      <th> Start Date </th>
+      <th> End Date </th>
+    </tr>
+    <tr *ngFor="let reservation of reservations">
+      <td> {{reservation.roomId}} </td>
+      <td> {{reservation.startDate}} </td>
+      <td> {{reservation.endDate}} </td>
+      <td>
+        <button (click)="deleteReservation(reservation.id)">
+          Remove
+        </button>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

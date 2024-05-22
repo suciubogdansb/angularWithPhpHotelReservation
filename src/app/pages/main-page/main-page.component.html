@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Available Rooms</title>
+</head>
+
+<body>
+<div class="filters">
+  <input type="text" placeholder="Type:" id="type" (input)="refreshRooms(+price.value, type.value)" #type/>
+  <input type="number" placeholder="Price:" id="price" (input)="refreshRooms(+price.value, type.value)" #price/>
+  <button (click)='redirectToReservation()'>
+    My Reservations
+  </button>
+</div>
+<div class="container">
+  <table>
+    <tr>
+      <th> Room Number </th>
+      <th> Room Type </th>
+      <th> Price </th>
+    </tr>
+    <tr *ngFor="let room of rooms">
+      <td> {{ room.id }} </td>
+      <td> {{ room.type }} </td>
+      <td> {{ room.price }} </td>
+      <td>
+        <button (click)="reserveRoom(room.id)">
+          Reserve
+        </button>
+      </td>
+  </table>
+</div>
+</body>
+
+</html>
