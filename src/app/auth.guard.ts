@@ -1,6 +1,6 @@
 import {CanActivateFn, Router} from '@angular/router';
 
-export const AuthGuard: CanActivateFn = (route, state) => {
+export const AuthGuard: CanActivateFn = () => {
   if (sessionStorage.getItem('userId')) {
     return true;
   }

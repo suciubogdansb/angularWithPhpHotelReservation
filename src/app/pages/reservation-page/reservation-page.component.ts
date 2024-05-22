@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import {Room} from "../../data/Room";
 import {GenericService} from "../../generic.service";
 import {Router} from "@angular/router";
 import {Reservation} from "../../data/Reservation";

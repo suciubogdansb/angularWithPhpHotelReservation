@@ -1,6 +1,4 @@
-import {bootstrapApplication, platformBrowser} from '@angular/platform-browser';
-import { appConfig } from './app/app.config';
-import { AppComponent } from './app/app.component';
+import {platformBrowser} from '@angular/platform-browser';
 import {AppRoutingModule} from "./app/app.module";
 
 platformBrowser().bootstrapModule(AppRoutingModule)
