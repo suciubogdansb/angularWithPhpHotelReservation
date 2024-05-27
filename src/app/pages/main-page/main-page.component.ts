@@ -20,7 +20,8 @@ export class MainPageComponent {
     this.refreshRooms();
   }
 
-  refreshRooms(price: number = 0, type: string = '') {
+  refreshRooms(price: number | null = null, type: string | null = null) {
+    price = (price && price > 0)? price : null;
     this.service.getRooms(price, type)
       .subscribe({
         next: (rooms) => {

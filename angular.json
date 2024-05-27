@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "webAngularWIthPhp": {
+    "webAngularWithDotNet": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -57,10 +57,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "webAngularWIthPhp:build:production"
+              "buildTarget": "webAngularWithDotNet:build:production"
             },
             "development": {
-              "buildTarget": "webAngularWIthPhp:build:development"
+              "buildTarget": "webAngularWithDotNet:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -68,7 +68,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "buildTarget": "webAngularWIthPhp:build"
+            "buildTarget": "webAngularWithDotNet:build"
           }
         },
         "test": {

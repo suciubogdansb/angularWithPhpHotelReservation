@@ -3,7 +3,7 @@ import {FormControl} from "@angular/forms";
 import {GenericService} from "../../generic.service";
 import {Router} from "@angular/router";
 
-interface LoginResponse {
+interface LoginResponse{
   id: number;
 }
 
@@ -15,6 +15,9 @@ interface LoginResponse {
 export class LoginPageComponent {
   title: string = "Login page"
   username = new FormControl('');
+  password = new FormControl('');
+  show: boolean = false
+  errorMessage: any = false
 
   constructor(
     private service: GenericService,
@@ -23,10 +26,15 @@ export class LoginPageComponent {
 
   login(){
     console.log(this.username.value);
-    if (this.username.value === null) {
+    if (this.username.value === null || this.password.value === null) {
+      this.errorMessage = "Please fill in all fields";
       return;
     }
-    this.service.login(this.username.value)
+    if (this.username.value === '' || this.password.value === '') {
+      this.errorMessage = "Please fill in all fields";
+      return;
+    }
+    this.service.login(this.username.value, this.password.value)
       .subscribe({
           next: (data) => {
             console.log(data);
@@ -37,8 +45,17 @@ export class LoginPageComponent {
           error: (error) =>
           {
             console.log(error);
+            this.errorMessage = error.statusText;
           }
         }
       );
+  }
+
+  redirectToRegister() {
+    this.router.navigate(['/register']).then((_) => { });
+  }
+
+  changeType() {
+
   }
 }

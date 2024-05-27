@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
   <meta charset="UTF-8">
-  <title>{{title}}</title>
+  <title>{{ title }}</title>
 </head>
 
 <body>
@@ -12,9 +12,13 @@
 
   <form method="post">
     <input type="text" placeholder="Username:" [formControl]="username" #name> <br>
+    <input [type]="show ? 'text' : 'password'" placeholder="Password:" [formControl]="password" #pass/> <br>
+    <button (click)="show = !show; $event.preventDefault()">{{ show ? 'Show' : 'Hide' }}</button>
     <div class="button_container">
       <button type="submit" (click)="login(); $event.preventDefault()">Login</button>
+      <button (click)="redirectToRegister()">Register</button>
     </div>
+    <div class="error" *ngIf="errorMessage">{{errorMessage}}</div>
   </form>
 </div>
 </body>

@@ -18,13 +18,15 @@
                        placeholder="Start Date:"
                        [min]="today"
                        max="2024-12-31"
-                       [formControl]="startDate"> <br>
+                       [formControl]="startDate"
+  > <br>
     End Date: <input type="date"
                      name="endDate"
                      placeholder="End Date:"
                      [min]="today"
                      max="2024-12-31"
-                     [formControl]="endDate"> <br>
+                     [formControl]="endDate"
+  > <br>
     <button type="submit" (click)="addReservation(); $event.preventDefault()">Add Reservation</button>
   </form>
 </div>

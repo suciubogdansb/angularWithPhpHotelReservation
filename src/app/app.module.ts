@@ -10,13 +10,15 @@ import {CommonModule} from "@angular/common";
 import {ReservationPageComponent} from "./pages/reservation-page/reservation-page.component";
 import {AuthGuard} from "./auth.guard";
 import {AddPageComponent} from "./pages/add-page/add-page.component";
+import {AuthenticationPageComponent} from "./pages/authentication-page/authentication-page.component";
 
 export const routes: Routes = [
   { path: '', redirectTo: 'show', pathMatch: 'full' },
   { path: 'login', component: LoginPageComponent },
   { path: 'show', component : MainPageComponent, canActivate: [AuthGuard]},
   { path: 'reservation', component : ReservationPageComponent, canActivate: [AuthGuard]},
-  { path: 'add', component : AddPageComponent, canActivate: [AuthGuard]}
+  { path: 'add', component : AddPageComponent, canActivate: [AuthGuard]},
+  { path: 'register', component : AuthenticationPageComponent }
 ];
 
 @NgModule(
@@ -26,7 +28,8 @@ export const routes: Routes = [
       LoginPageComponent,
       MainPageComponent,
       ReservationPageComponent,
-      AddPageComponent
+      AddPageComponent,
+      AuthenticationPageComponent
     ],
     imports: [
       BrowserModule,

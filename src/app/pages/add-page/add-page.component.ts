@@ -10,8 +10,8 @@ import {FormControl} from "@angular/forms";
 })
 export class AddPageComponent {
   today = new Date();
-  startDate = new FormControl('');
-  endDate = new FormControl('');
+  startDate = new FormControl(this.today);
+  endDate = new FormControl(this.today);
 
   constructor(
     private service: GenericService,
@@ -32,7 +32,7 @@ export class AddPageComponent {
     if (this.startDate.value == null || this.endDate.value == null) {
       return;
     }
-    this.service.addReservation(Number(userId), Number(roomNumber), this.startDate.value, this.endDate.value)
+    this.service.addReservation(Number(userId), Number(roomNumber), this.startDate.value?.toString(), this.endDate.value?.toString())
       .subscribe({
         next: (data) => {
           console.log(data);
