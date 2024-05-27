@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+  <meta charset="UTF-8">
+  <title>{{ title }}</title>
+</head>
+
+<body>
+<div class="container">
+  <h1>Login</h1>
+
+  <form method="post">
+    <input type="text" placeholder="Username:" [formControl]="username" #name> <br>
+    <input [type]="show ? 'text' : 'password'" placeholder="Password:" [formControl]="password" #pass/> <br>
+    <input [type]="show ? 'text' : 'password'" placeholder="Confirm password:" [formControl]="confirmPassword" #pass/> <br>
+    <button (click)="show = !show; $event.preventDefault()">{{ show ? 'Show' : 'Hide' }} password</button>
+    <div class="button_container">
+      <button type="submit" (click)="register(); $event.preventDefault()">Register</button>
+    </div>
+  </form>
+  <div class="error" *ngIf="errorMessage">{{ errorMessage }}</div>
+</div>
+</body>
+</html>
